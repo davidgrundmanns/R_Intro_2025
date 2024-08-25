@@ -1,0 +1,7 @@
+Delete the content of the code chunk and write a comment for the next person who pulls your code:
+
+```{r}
+
+#Welcome to Mannheim!
+
+```
