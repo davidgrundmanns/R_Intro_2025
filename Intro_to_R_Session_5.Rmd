@@ -25,7 +25,7 @@ There are different type of Loops, but for this course we focus just on the `for
 
 ### 1.2 `For` loops
 
-Do you remeber my grade example from the first chapter?
+Do you remember my grade example from the first chapter?
 
 ```{r}
 
@@ -266,7 +266,7 @@ apply(mat, 2, sum) #Let us get the sum of the columns
 apply(mat, 2, sd) #The standard deviation
 
 
-#The correspoinding Loop would look like this: 
+#The corresponding Loop would look like this: 
 
 for (i in 1:ncol(mat)) {
   mean_col <- mean(mat[, i])
