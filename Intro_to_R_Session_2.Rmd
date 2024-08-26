@@ -122,7 +122,7 @@ d1 <- read.csv("data/ESS10_sub.csv") #If it is not in the same directory as the 
 
 ### One last thing: Pipelines
 
-The are two ways excute successive commands on the same object: 1) the Base R method is to place the command to be executed first in the center then add other commands on top of it, like an onion.
+The are two ways execute successive commands on the same object: 1) the Base R method is to place the command to be executed first in the center then add other commands on top of it, like an onion.
 2) the tidyverse of "pipping" or sending the results from the first command into the next command.
 let's look at an example:
 
@@ -280,7 +280,7 @@ head(d2)
 We obviously do not care about all variables a dataset can offer (mostly).
 There are several ways to select the variables (columns) we need.
 This of course depends on our research question.
-Let's say we want to investigate if respondents (dis)trusting scientist are more likely to be willing to get vaccined against COVID-19.
+Let's say we want to investigate if respondents (dis)trusting scientist are more likely to be willing to get vaccinated against COVID-19.
 We want to control for Age, Education, Gender, and the Left-Right Position.
 
 ```{r selecting Base R}
@@ -425,7 +425,7 @@ head(d2)
 d2 <- d1 %>%
   filter(agea < 40) %>%
   select(trstsci, getnvc19, agea, eisced, gndr, lrscale) %>% 
-  arrange(desc(agea))#We just use the desc() function in the arrange finction and R sorts the variable from the lowest to the highest 
+  arrange(desc(agea))#We just use the desc() function in the arrange function and R sorts the variable from the lowest to the highest 
 
 head(d2)
 
@@ -640,7 +640,7 @@ d2 <- d1 %>%
 head(d2)
 
 
-#The recode() function can be used to convert a variable, this is particulary useful, if we have an empirical strategy, which requires that or if we want to make new variables with new classes out of it: 
+#The recode() function can be used to convert a variable, this is particularly useful, if we have an empirical strategy, which requires that or if we want to make new variables with new classes out of it: 
 
 d2 <- d1 %>% 
   mutate(
@@ -765,11 +765,11 @@ d2 <- d1 %>%
   filter(agea >=40) %>% #filtering for bigger equal 40 years old
   select(trstsci, getnvc19, agea, eisced, gndr, lrscale) %>% #selecting only relevant variables 
   arrange(desc(agea)) %>% #arranging them by age in a descending order 
-  rename(no_vac = getnvc19, #renaming variables with unitutive names 
+  rename(no_vac = getnvc19, #renaming variables with unintuitive names 
          age = agea, 
          education = eisced, 
          female = gndr) %>% 
-  mutate( #Coding the missing categories into acutal missing values 
+  mutate( #Coding the missing categories into actual missing values 
     no_vac = case_when( 
       no_vac == 1 ~ 0, 
       no_vac == 2 ~ 1, 
@@ -802,14 +802,14 @@ head(d2)
 
 Sometimes it could be the case that you need variables, which are not in one dataset already available, but in another dataset.
 For this case you load both datasets and **merge** them together.
-**This only works if there is a similiar data structure, so know your data !**
+**This only works if there is a similar data structure, so know your data !**
 
 As an example, I will show how to do that with **World Bank Data**.
 From this data we can gather nearly all important economic indicators.
 But mostly we need to merge them to datasets we are interested in.
 We will merge the **World Bank Data** with the **KOF Globalization Index**.
-The **KOF Globalization Index** isone of the most prominent Globalization Indicies, and highly influential.
-It measures Globalization on different dimensions and differantiates between *de facto* and *de jure* Globalization.
+The **KOF Globalization Index** is one of the most prominent Globalization Indices, and highly influential.
+It measures Globalization on different dimensions and differentiates between *de facto* and *de jure* Globalization.
 Let's check out the corresponding article from Gygli et al. 2019.
 
 There are several ways of getting World Bank Data, but I will show the most efficient.
