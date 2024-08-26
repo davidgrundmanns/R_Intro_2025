@@ -359,7 +359,7 @@ legend("bottomright",   #you can give x and y or location text
                   "Friends Left-Right",
                   "Friends Social Trust"),   #the text to be displayed
        lwd = c(2, 2,
-               NA, NA),       #the two lines have lw2, points have NA
+               NA, NA),       #the two lines have lwd 2, points have NA
        col = c("blue", "red",
                "blue", "red"),
        pch = c(NA,NA,
