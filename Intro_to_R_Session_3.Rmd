@@ -50,7 +50,7 @@ parl <- read.csv("data/parlgov_election.csv")
 
 ### 2.1 Merging the Datasets
 
-To get a complete dataset on party positions and the parties' vote shares, we will need to merge the two datasets. Do you remember how to do that? To our luck, it just so happens that the POPPA data includes a variable that has the ParlGov ID of every party, making merging easy for us. However, as POPPA only measures party positions at around 2018, we have to limit ParlGov to this timeframe. 
+To get a complete dataset on party positions and the parties' vote shares, we will need to merge the two datasets. Do you remember how to do that? To our luck, it just so happens that the POPPA data includes a variable that has the ParlGov ID of every party, making merging easy for us. However, as POPPA only measures party positions at around 2018, we have to limit ParlGov to this time frame. 
 
 ```{r merge}
 parl18 <- parl %>% 
@@ -67,7 +67,7 @@ Now that our dataset is complete, we have a dataset that includes the vote share
 describe(comp)
 ```
 
-The `describe()` function gives a great overview over each variable in the dataset. `Vars` simply shows us a count of the variables. Going to the last page, we can see that we have 42 variables in our dataset. `n` shows us the number of observations for each variable. Now, more interesting to us is the column named `mean`. This column shows us the arithmetic mean of each variable, something that of course only works with numeric variables. It shows us, that the average vote share lies at around 10.24%. However, this alone tells us relatively little. We also need the standard deviation (remember, the average deviation from the mean) as well. This is told by `sd`. We can see that a parties vote share lies at a mean of 10.24% with a standard deviation of +/- 10.98%, a rather big number in comparison to the mean. We can, from this, conclude that a mean will not get us very far, as the vote share seems to vary a lot. Three other important, that can show us how much the vote share actually varies, are `min`, `max`, and `range`, which tell us the minimum measured vote share, the highest measured vote share and the range between the minimum and maximum. Thus, we see that the lowest measured vote share is 0.21%, the highest is 55.04% and the range between the two is at 54.83% (max-min = range). We can of course also look at these values seperately. The values are the same
+The `describe()` function gives a great overview over each variable in the dataset. `Vars` simply shows us a count of the variables. Going to the last page, we can see that we have 42 variables in our dataset. `n` shows us the number of observations for each variable. Now, more interesting to us is the column named `mean`. This column shows us the arithmetic mean of each variable, something that of course only works with numeric variables. It shows us, that the average vote share lies at around 10.24%. However, this alone tells us relatively little. We also need the standard deviation (remember, the average deviation from the mean) as well. This is told by `sd`. We can see that a parties vote share lies at a mean of 10.24% with a standard deviation of +/- 10.98%, a rather big number in comparison to the mean. We can, from this, conclude that a mean will not get us very far, as the vote share seems to vary a lot. Three other important, that can show us how much the vote share actually varies, are `min`, `max`, and `range`, which tell us the minimum measured vote share, the highest measured vote share and the range between the minimum and maximum. Thus, we see that the lowest measured vote share is 0.21%, the highest is 55.04% and the range between the two is at 54.83% (max-min = range). We can of course also look at these values separately. The values are the same
 
 ```{r measure}
 mean(comp$vote_share, na.rm = T) #For these functions to work, we will need to exclude missing values
@@ -85,7 +85,7 @@ describe(comp$vote, na.rm = T)
 
 ### 3.1 A Look at Distributions
 
-The normal way to do this is to plot the variables, but ou can ignore that for now. We will do it later. 
+The normal way to do this is to plot the variables, but we can ignore that for now. We will do it later. 
 
 ### 3.2 Summary of Specific Variables
 
@@ -97,7 +97,7 @@ summary(comp$vote_share)
 
 ## 4. The Gini-Coefficient
 
-Another commonly used measure, specifically when trying to judge if there is inequality in a distribution, is the Gini-Coefficient. Complete equality is imagined by a straight vertical line. The Lorenzcurve then portraits the actual distribution. Now, to measure the inequality of a distribution, the Gini-Coefficient, we estimate the size of the gap between these two lines. The closer the value gets to 1, the higher the unequality, while a value closer to 0 indicates a completely equal distribution. In R, we can easily estimate this as follows.
+Another commonly used measure, specifically when trying to judge if there is inequality in a distribution, is the Gini-Coefficient. Complete equality is imagined by a straight vertical line. The Lorenzcurve then portraits the actual distribution. Now, to measure the inequality of a distribution, the Gini-Coefficient, we estimate the size of the gap between these two lines. The closer the value gets to 1, the higher the inequality, while a value closer to 0 indicates a completely equal distribution. In R, we can easily estimate this as follows.
 
 ```{r gini}
 Gini(comp$vote_share)
@@ -125,7 +125,7 @@ As expected, the UK with it's majoritarian electoral system has the highest ineq
 
 ## 5. Frequency Tables
 
-Another way to better understand the variables your dealing with and do some first and basic descriptive statistics, are frequency tables. The most common ones you will use and come across are normal frequency tables and proportioanl tables. Lets start with the first.
+Another way to better understand the variables your dealing with and do some first and basic descriptive statistics, are frequency tables. The most common ones you will use and come across are normal frequency tables and proportional tables. Lets start with the first.
 
 ### 5.1 Standard Tables
 
@@ -146,7 +146,7 @@ We can also create a table that cumulates the values from column to column.
 t1 <- table(comp$cat_vote)
 cumsum(t1)
 ```
-Whith this we can say: 77 parties in the data received between 0% and 4% of votes. 117 parties received 9% or less votes. 142 parties received 14% or less and so on... 
+With this we can say: 77 parties in the data received between 0% and 4% of votes. 117 parties received 9% or less votes. 142 parties received 14% or less and so on... 
 
 
 ## 6. Crosstabulation
@@ -182,7 +182,7 @@ cor(comp$seat_share, comp$vote_share, use = "complete.obs")
 cor(comp$seat_share, comp$vote_share, method = "spearman", use = "complete.obs")
 cor(comp$seat_share, comp$vote_share, method = "kendall", use = "complete.obs")
 ```
-All three coefficients show us that vote share and seat share are positively correlated. But this, again, is no surprise... How about we check the correlations of all (numeric) variables in our data to see if we do find a surprise? We can do so by calculating a correlation martix. This matrix contains the correlation coefficients between all variables in the data, by simply inputting the dataset into the previous command. However, we have to exclude all variables that are not numeric.
+All three coefficients show us that vote share and seat share are positively correlated. But this, again, is no surprise... How about we check the correlations of all (numeric) variables in our data to see if we do find a surprise? We can do so by calculating a correlation matrix. This matrix contains the correlation coefficients between all variables in the data, by simply inputting the dataset into the previous command. However, we have to exclude all variables that are not numeric.
 
 ## 8. Concluding Remarks
 
