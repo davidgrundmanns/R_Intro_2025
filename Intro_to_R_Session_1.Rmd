@@ -493,7 +493,7 @@ print(confused_vector)
 
 
 #Task 3
-#In the European Social Survey, political interest is scaled from 1-4, where 1 means very intested in politicas, and 4 means very uninterested in politics. This is counter intuitive. create a vector fot the political interest values of the following survey participants **then** reverse the scale so 4 would mean very interested in politics
+#In the European Social Survey, political interest is scaled from 1-4, where 1 means very interested in politics, and 4 means very uninterested in politics. This is counter intuitive. create a vector for the political interest values of the following survey participants **then** reverse the scale so 4 would mean very interested in politics
 
 #participant 1: very interested
 #participant 2: somewhat uninterested
