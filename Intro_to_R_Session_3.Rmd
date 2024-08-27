@@ -20,7 +20,7 @@ We will also need the `tidyverse` and `haven`.
 ```{r packages, message=FALSE, warning=FALSE, results='hide'}
 
 p_needed <-
-  c("tidyverse", "haven", "psych", "ineq", "corrplot")
+  c("tidyverse", "psych", "ineq", "corrplot")
 
 packages <- rownames(installed.packages())
 
