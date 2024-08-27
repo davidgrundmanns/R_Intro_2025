@@ -62,7 +62,7 @@ But there are way more elegant and pragmatic ways to do that, and here is an exa
 # First you define which packages you need for your analysis and assign it to
 # the p_needed object.
 p_needed <-
-  c("tidyverse","haven", "WDI")
+  c("tidyverse", "WDI")
 
 # Now you check which packages are already installed on your computer.
 # The function installed.packages() returns a vector with all the installed
