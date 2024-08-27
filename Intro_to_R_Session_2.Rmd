@@ -444,9 +444,9 @@ colnames(d3)[which(colnames(d3) == "agea")] <- "age"
 colnames(d3) #you can change multiple names by using %in% instead of ==
 
 
-#there is no easy way to reorder the column and it has to be done manually
+#there is no easy way to reorder the columns and it has to be done manually
 
-#either change the order of names of indices
+#either change the order of names or indices
 
 #"trstsci"  "getnvc19" "age"      "eisced"   "gndr"     "lrscale" 
 
