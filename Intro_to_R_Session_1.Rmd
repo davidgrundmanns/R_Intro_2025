@@ -778,8 +778,8 @@ student_data_col <- cbind(student_id, grade, missed_classes)
 print(student_data_col)
 
 
-#lefts bind by rows using cbind()
-student_data_row <- cbind(student_id, grade, missed_classes)
+#lefts bind by rows using rbind()
+student_data_row <- rbind(student_id, grade, missed_classes)
 print(student_data_row)
 
 #the difference is clearer using the dim()
