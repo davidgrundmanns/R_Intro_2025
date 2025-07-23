@@ -96,6 +96,8 @@ There are different types of data structures, I will present you the most freque
 | **CSV-Files** | .csv           | `read.csv()` (German csv: `read.csv2()`) |
 | **RData**     | .RData;.rds    | `load()` , `read.rds()`                  |
 
+By default, read.csv() identifies commas "," as seperators (to seperate data entries), whereas read.csv2() identifies semicolons ";" as seperators. An alternative to using read.csv2() is to explicitly declare the seperator using read.csv(file, sep = ";"). For further information, consult the documentation in R using the command '?read.csv'.
+
 ### 3.2 The European Social Survey
 
 For the following Data Manipulation Part, we will use the European Social Survey Round 10 with the topic "Democracy, Digital social contacts".
